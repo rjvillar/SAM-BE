@@ -1,8 +1,20 @@
 <?php
-
 include('connect.php');
+include('classes.php');
 
 $result = executeQuery("SELECT * FROM islandsOfPersonality");
+$islands = [];
+
+while ($row = $result->fetch_assoc()) {
+    $islands[] = new Island(
+        $row['islandOfPersonalityID'],
+        $row['name'],
+        $row['color'],
+        $row['image'],
+        $row['longDescription'],
+        $row['shortDescription']
+    );
+}
 
 ?>
 
@@ -99,41 +111,16 @@ $result = executeQuery("SELECT * FROM islandsOfPersonality");
 
     <div class="position-fixed bottom-0 w-100 d-none d-sm-block">
         <div class="nav bg-white text-center p-3">
-            <?php while ($row = $result->fetch_assoc()) { ?>
-                <a href="#<?php echo strtolower(str_replace(' ', '_', $row['name'])); ?>" style="width:25%" class="nav-link"><?php echo $row['name']; ?></a>
+            <?php foreach ($islands as $island) { ?>
+                <a href="#<?php echo strtolower(str_replace(' ', '_', $island->name)); ?>" style="width:25%" class="nav-link"><?php echo $island->name; ?></a>
             <?php } ?>
         </div>
     </div>
 
-    <?php
-    $result->data_seek(0);
-
-    while ($island = $result->fetch_assoc()) {
-        $islandID = $island['islandOfPersonalityID'];
-        $contentResult = $conn->query("SELECT * FROM islandContents WHERE islandOfPersonalityID = $islandID");
-    ?>
-
-        <div class="container-fluid py-5" id="<?php echo strtolower(str_replace(' ', '_', $island['name'])); ?>"
-            style="background-color: <?php echo $island['color']; ?>;">
-            <div class="container">
-                <h1 class="text-center text-muted"><b><?php echo $island['name']; ?></b></h1>
-                <p class="text-center fs-5 mb-4 text-muted"><?php echo $island['longDescription']; ?></p>
-                <img class="rounded img-fluid island-img my-1" src="<?php echo $island['image']; ?>" style="width:100%;height:auto;">
-                <p class="text-muted"><i><?php echo $island['shortDescription']; ?></i></p><br>
-
-                <p class="text-center">
-                    <span class="fs-5">More Contents</span>
-                </p>
-
-                <?php while ($content = $contentResult->fetch_assoc()) { ?>
-                    <div class="content">
-                        <img class="rounded content-img mt-3 mb-0" src="<?php echo $content['image']; ?>" alt="<?php echo $content['content']; ?>">
-                        <p class="fs-5 text-center"><?php echo $content['content']; ?></p>
-                    </div>
-                <?php } ?>
-            </div>
-        </div>
-    <?php } ?>
+    <?php foreach ($islands as $island) {
+        $contentResult = $conn->query("SELECT * FROM islandContents WHERE islandOfPersonalityID = {$island->id}");
+        echo $island->generateIslandSection($contentResult);
+    } ?>
 
     <footer class="text-center text-white bg-dark py-3">
         <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank"
