@@ -1,0 +1,247 @@
+:root {
+    --olympic-blue: #1386c4;
+    --olympic-yellow: #f3c232;
+    --olympic-black: #000000;
+    --olympic-green: #47993d;
+    --olympic-red: #d23539;
+}
+
+.poppins-light {
+    font-family: "Poppins", serif;
+    font-weight: 300;
+    font-style: normal;
+}
+
+.poppins-regular {
+    font-family: "Poppins", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.poppins-medium {
+    font-family: "Poppins", serif;
+    font-weight: 500;
+    font-style: normal;
+}
+
+.poppins-semibold {
+    font-family: "Poppins", serif;
+    font-weight: 600;
+    font-style: normal;
+}
+
+.poppins-bold {
+    font-family: "Poppins", serif;
+    font-weight: 700;
+    font-style: normal;
+}
+
+.tourney-bold {
+    font-family: "Tourney", serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+    font-variation-settings:
+        "wdth" 100;
+}
+
+.df {
+    color: #1f1d1b;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #ede9e6;
+}
+
+.navbar {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #ede9e6 !important;
+    padding: 1rem 0;
+}
+
+.navbar-brand {
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+
+.nav-link {
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: var(--olympic-blue) !important;
+}
+
+.hero-section {
+    position: relative;
+    overflow: hidden;
+}
+
+css-doodle {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+.menu-section {
+    padding: 5rem 0;
+}
+
+.menu-item {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.menu-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.animate__fadeIn {
+    animation: fadeIn 0.5s ease-out;
+}
+
+.about-section {
+    background-color: #ede9e6;
+}
+
+.divider-custom {
+    width: 60px;
+    height: 4px;
+    background-color: #1f1d1b;
+    margin: 1.5rem auto;
+    border-radius: 2px;
+}
+
+.contact-section {
+    background-color: #ede9e6;
+}
+
+.card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.form-control {
+    border: 1px solid #ede9e6;
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+}
+
+.form-control:focus {
+    border-color: var(--olympic-blue);
+    box-shadow: 0 0 0 0.2rem rgba(0, 133, 199, 0.25);
+}
+
+.sort-btn {
+    background-color: #ede9e6;
+    border-color: #ede9e6;
+    padding: 0.75rem 1.5rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.sort-btn:hover {
+    background-color: #1f1d1b;
+    border-color: #1f1d1b;
+    transform: translateY(-2px);
+    color: white;
+}
+
+.logout-btn:hover {
+    background-color: #1f1d1b;
+    border-color: #1f1d1b;
+    color: white;
+}
+
+.btn-primary {
+    background-color: #c6a179;
+    border-color: #c6a179;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #1f1d1b;
+    border-color: #1f1d1b;
+    transform: translateY(-2px);
+}
+
+.btn-outline-primary {
+    border-color: #1f1d1b;
+}
+
+.btn-outline-primary:hover {
+    background-color: #1f1d1b;
+    border-color: #1f1d1b;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    animation: fadeIn 0.5s ease-out forwards;
+}
+
+.toast-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1056;
+}
+
+.custom-toast {
+    background: #333;
+    color: white;
+    padding: 15px 25px;
+    border-radius: 5px;
+    margin: 10px;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    h1 {
+        font-size: 2rem !important;
+    }
+}
