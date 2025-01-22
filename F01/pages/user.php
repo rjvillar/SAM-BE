@@ -141,7 +141,7 @@ if (isset($_POST['submit_feedback'])) {
                 <button onclick="filterProducts('beverages')" class="btn me-2 df poppins-regular <?php echo (isset($_GET['category']) && $_GET['category'] === 'beverages') ? 'btn-primary' : 'btn-outline-primary'; ?>">Beverages</button>
                 <button onclick="filterProducts('food')" class="btn df poppins-regular <?php echo (isset($_GET['category']) && $_GET['category'] === 'food') ? 'btn-primary' : 'btn-outline-primary'; ?>">Food</button>
             </div>
-            <div class="row g-4" id="menuItems">
+            <div class="row g-4 justify-content-center" id="menuItems">
                 <?php
                 $category = $_GET['category'] ?? 'all';
                 foreach ($products as $product):
@@ -511,7 +511,7 @@ if (isset($_POST['submit_feedback'])) {
             event.target.classList.remove('btn-outline-primary');
             event.target.classList.add('btn-primary');
 
-            const menuItems = document.querySelectorAll('#menuItems .col-md-6');
+            const menuItems = document.querySelectorAll('#menuItems .col-md-4');
             menuItems.forEach(item => {
                 const productCategory = item.getAttribute('data-category');
                 if (category === 'all' || productCategory === category) {
