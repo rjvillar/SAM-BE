@@ -147,8 +147,13 @@ if (isset($_POST['submit_feedback'])) {
                 foreach ($products as $product):
                     if ($category === 'all' || $category === $product['category']):
                 ?>
-                        <div class="col-md-6 col-lg-4" data-category="<?php echo $product['category']; ?>">
+                        <div class="col-md-4 col-lg-3" data-category="<?php echo $product['category']; ?>">
                             <div class="card menu-item h-100 border-0" style="background: linear-gradient(135deg, rgba(0, 133, 199, 0.1) 0%, rgba(0, 159, 61, 0.1) 100%); border-radius:15px;">
+                                <?php if ($product['image']): ?>
+                                    <img src="../assets/images/products/<?php echo $product['image']; ?>"
+                                        class="card-img-top"
+                                        alt="<?php echo $product['name']; ?>">
+                                <?php endif; ?>
                                 <div class="card-body">
                                     <h5 class="card-title df poppins-medium"><?php echo $product['name']; ?></h5>
                                     <p class="card-text text-muted df poppins-regular"><?php echo $product['description']; ?></p>

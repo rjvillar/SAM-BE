@@ -42,12 +42,10 @@ while ($row = mysqli_fetch_assoc($feedback_result)) {
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
             <div class="d-flex align-items-center">
-                <img src="../assets/images/logo-admin.webp" width="200">
+                <img class="logo-admin" src="../assets/images/logo-admin.webp" width="200">
                 <h3 class="poppins-bold fs-5 mx-1 text-white">admin</h3>
             </div>
-            <li class="nav-item">
-                <button class="btn poppins-regular logout-btn" onclick="logout()">Logout</button>
-            </li>
+            <button class="btn poppins-regular logout-btn" onclick="logout()">Logout</button>
         </div>
     </nav>
 
@@ -67,6 +65,7 @@ while ($row = mysqli_fetch_assoc($feedback_result)) {
                             <table class="table" id="productsTable">
                                 <thead>
                                     <tr>
+                                        <th style="background: rgba(0, 0, 0, 0.05); border-bottom: 2px solid #F4C300;" class="text-dark poppins-bold">Image</th>
                                         <th style="background: rgba(0, 0, 0, 0.05); border-bottom: 2px solid #F4C300;" class="text-dark poppins-bold">Name</th>
                                         <th style="background: rgba(0, 0, 0, 0.05); border-bottom: 2px solid #F4C300;" class="text-dark poppins-bold">Description</th>
                                         <th style="background: rgba(0, 0, 0, 0.05); border-bottom: 2px solid #F4C300;" class="text-dark poppins-bold">Price</th>
@@ -121,6 +120,9 @@ while ($row = mysqli_fetch_assoc($feedback_result)) {
                     <form id="productForm">
                         <input type="hidden" id="productId">
                         <div class="mb-3">
+                            <label for="productImage" class="form-label df poppins-medium">Product Image</label>
+                            <input type="file" class="form-control poppins-regular" id="productImage" name="image" accept="image/*">
+                            <div id="currentImage" class="mt-2"></div>
                             <label for="productName" class="form-label df poppins-medium">Product Name</label>
                             <input type="text" class="form-control poppins-regular" id="productName" required>
                         </div>
@@ -165,25 +167,28 @@ while ($row = mysqli_fetch_assoc($feedback_result)) {
                     productsTableBody.innerHTML = '';
                     data.forEach(product => {
                         productsTableBody.innerHTML += `
-                    <tr>
-                        <td class="poppins-regular">${product.name}</td>
-                        <td class="poppins-regular">${product.description}</td>
-                        <td class="poppins-regular">₱${parseFloat(product.price).toFixed(2)}</td>
-                        <td class="poppins-regular">${product.category}</td>
-                        <td>
-                            <button class="btn btn-sm btn-warning me-1 poppins-light" 
-                                onclick="editProduct(${product.product_id})" 
-                                style="background: #F4C300; border: none; color: #000;">
-                                Edit
-                            </button>
-                            <button class="btn btn-sm btn-danger poppins-light" 
-                                onclick="deleteProduct(${product.product_id})" 
-                                style="background: #DF0024; border: none;">
-                                Delete
-                            </button>
-                        </td>
-                    </tr>
-                `;
+                <tr>
+                    <td class="poppins-regular">
+                    ${product.image ? `<img src="../../assets/images/products/${product.image}" alt="${product.name}" style="width: 50px; height: 50px; object-fit: cover; border-radius: 5px;">` : 'No image'}
+                    </td>
+                    <td class="poppins-regular">${product.name}</td>
+                    <td class="poppins-regular">${product.description}</td>
+                    <td class="poppins-regular">₱${parseFloat(product.price).toFixed(2)}</td>
+                    <td class="poppins-regular">${product.category}</td>
+                    <td>
+                        <button class="btn btn-sm btn-warning me-1 poppins-light" 
+                            onclick="editProduct(${product.product_id})" 
+                            style="background: #F4C300; border: none; color: #000;">
+                            Edit
+                        </button>
+                        <button class="btn btn-sm btn-danger poppins-light" 
+                            onclick="deleteProduct(${product.product_id})" 
+                            style="background: #DF0024; border: none;">
+                            Delete
+                        </button>
+                    </td>
+                </tr>
+            `;
                     });
                 });
         }
@@ -194,6 +199,10 @@ while ($row = mysqli_fetch_assoc($feedback_result)) {
             formData.append('description', document.getElementById('productDescription').value);
             formData.append('price', document.getElementById('productPrice').value);
             formData.append('category', document.getElementById('productCategory').value);
+            const imageFile = document.getElementById('productImage').files[0];
+            if (imageFile) {
+                formData.append('image', imageFile);
+            }
 
             fetch('../assets/php/add_product.php', {
                     method: 'POST',
@@ -225,6 +234,18 @@ while ($row = mysqli_fetch_assoc($feedback_result)) {
                     document.getElementById('productPrice').value = product.price;
                     document.getElementById('productCategory').value = product.category;
 
+                    // Show current image preview
+                    const currentImageDiv = document.getElementById('currentImage');
+                    if (product.image) {
+                        currentImageDiv.innerHTML = `
+                    <img src="../../assets/images/products/${product.image}" 
+                         alt="Current product image" 
+                         style="max-width: 100px; margin-top: 10px;">
+                    <p class="mt-2 text-muted">Current image</p>`;
+                    } else {
+                        currentImageDiv.innerHTML = '';
+                    }
+
                     document.getElementById('modalTitle').textContent = 'Edit Product';
 
                     const modal = document.getElementById('addProductModal');
@@ -244,6 +265,10 @@ while ($row = mysqli_fetch_assoc($feedback_result)) {
             formData.append('description', document.getElementById('productDescription').value);
             formData.append('price', document.getElementById('productPrice').value);
             formData.append('category', document.getElementById('productCategory').value);
+            const imageFile = document.getElementById('productImage').files[0];
+            if (imageFile) {
+                formData.append('image', imageFile);
+            }
 
             fetch('../assets/php/update_product.php', {
                     method: 'POST',

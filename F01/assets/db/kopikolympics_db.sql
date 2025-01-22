@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 20, 2025 at 11:54 AM
+-- Generation Time: Jan 22, 2025 at 03:00 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -54,6 +54,14 @@ CREATE TABLE `cart` (
   `added_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `cart`
+--
+
+INSERT INTO `cart` (`cart_id`, `user_id`, `product_id`, `quantity`, `added_at`) VALUES
+(46, 1, 5, 1, '2025-01-22 10:46:39'),
+(47, 1, 6, 1, '2025-01-22 10:46:40');
+
 -- --------------------------------------------------------
 
 --
@@ -85,6 +93,7 @@ CREATE TABLE `products` (
   `product_id` int(11) NOT NULL,
   `name` varchar(100) NOT NULL,
   `description` text DEFAULT NULL,
+  `image` varchar(255) DEFAULT NULL,
   `price` decimal(10,2) NOT NULL,
   `category` enum('food','beverages') NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
@@ -95,13 +104,14 @@ CREATE TABLE `products` (
 -- Dumping data for table `products`
 --
 
-INSERT INTO `products` (`product_id`, `name`, `description`, `price`, `category`, `created_at`, `updated_at`) VALUES
-(1, 'Champion\'s Latte', 'Premium espresso with silky steamed milk', 249.00, 'beverages', '2025-01-19 20:57:56', '2025-01-19 23:11:18'),
-(2, 'Olympic Breakfast Bowl', 'Acai, granola, fresh fruits, and honey', 449.00, 'food', '2025-01-19 20:57:56', '2025-01-19 20:57:56'),
-(3, 'Gold Medal Cappuccino', 'Double shot espresso with perfect foam', 299.00, 'beverages', '2025-01-19 20:57:56', '2025-01-19 20:57:56'),
-(4, 'Victory Sandwich', 'Turkey, avocado, and fresh vegetables', 549.00, 'food', '2025-01-19 20:57:56', '2025-01-19 20:57:56'),
-(5, 'Podium Smoothie', 'Protein-packed blend of fruits and yogurt', 349.00, 'beverages', '2025-01-19 20:57:56', '2025-01-19 20:57:56'),
-(6, 'Athlete\'s Salad', 'Mixed greens, grilled chicken, and quinoa', 649.00, 'food', '2025-01-19 20:57:56', '2025-01-19 20:57:56');
+INSERT INTO `products` (`product_id`, `name`, `description`, `image`, `price`, `category`, `created_at`, `updated_at`) VALUES
+(1, 'Champion\'s Latte', 'Premium espresso with silky steamed milk', 'championlatte.png', 249.00, 'beverages', '2025-01-19 20:57:56', '2025-01-22 13:14:08'),
+(2, 'Olympic Breakfast Bowl', 'Acai, granola, fresh fruits, and honey', 'olympicbreakfastbowl.png', 449.00, 'food', '2025-01-19 20:57:56', '2025-01-22 13:14:28'),
+(3, 'Gold Medal Cappuccino', 'Double shot espresso with perfect foam', 'goldmedalcapuccino.png', 299.00, 'beverages', '2025-01-19 20:57:56', '2025-01-22 13:14:40'),
+(4, 'Victory Sandwich', 'Turkey, avocado, and fresh vegetables', 'victorysandwich.png', 549.00, 'food', '2025-01-19 20:57:56', '2025-01-22 13:14:51'),
+(5, 'Podium Smoothie', 'Protein-packed blend of fruits and yogurt', 'podiumsmoothie.png', 349.00, 'beverages', '2025-01-19 20:57:56', '2025-01-22 13:15:05'),
+(6, 'Athlete\'s Salad', 'Mixed greens, grilled chicken, and quinoa', 'athletesalad.png', 649.00, 'food', '2025-01-19 20:57:56', '2025-01-22 13:15:12'),
+(7, 'Soccer Cookie', 'Chocolate, tasty dough, and some sprinkles of athlete\'s foot', 'soccercookie.png', 119.00, 'food', '2025-01-22 12:19:01', '2025-01-22 13:15:25');
 
 -- --------------------------------------------------------
 
@@ -176,7 +186,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `cart_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
+  MODIFY `cart_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 
 --
 -- AUTO_INCREMENT for table `feedback`
@@ -188,7 +198,7 @@ ALTER TABLE `feedback`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `users`

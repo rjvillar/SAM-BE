@@ -91,6 +91,17 @@ body {
     color: white;
 }
 
+.logo-admin {
+    filter: brightness(0) saturate(100%) invert(76%) sepia(53%) saturate(845%) hue-rotate(359deg) brightness(103%) contrast(103%);
+    max-width: 200px;
+    height: auto;
+    transition: all 0.3s ease;
+}
+
+.logo-admin:hover {
+    filter: brightness(0) saturate(100%) invert(48%) sepia(99%) saturate(1551%) hue-rotate(173deg) brightness(94%) contrast(101%);
+}
+
 .nav-link {
     font-weight: 500;
     transition: color 0.3s ease;
