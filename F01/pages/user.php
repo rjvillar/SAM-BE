@@ -148,7 +148,7 @@ if (isset($_POST['submit_feedback'])) {
                     if ($category === 'all' || $category === $product['category']):
                 ?>
                         <div class="col-md-6 col-lg-4" data-category="<?php echo $product['category']; ?>">
-                            <div class="card menu-item h-100 border-0" style="background-color: #ede9e6; border-radius:15px;">
+                            <div class="card menu-item h-100 border-0" style="background: linear-gradient(135deg, rgba(0, 133, 199, 0.1) 0%, rgba(0, 159, 61, 0.1) 100%); border-radius:15px;">
                                 <div class="card-body">
                                     <h5 class="card-title df poppins-medium"><?php echo $product['name']; ?></h5>
                                     <p class="card-text text-muted df poppins-regular"><?php echo $product['description']; ?></p>
@@ -180,7 +180,7 @@ if (isset($_POST['submit_feedback'])) {
 
                     <div class="row g-4">
                         <div class="col-md-6">
-                            <div class="card h-100 shadow-sm border-0" style="border-radius:15px;">
+                            <div class="card menu-item h-100 border-0" style="background: linear-gradient(135deg, rgba(0, 133, 199, 0.1) 0%, rgba(0, 159, 61, 0.1) 100%); border-radius:15px;">
                                 <div class="card-body">
                                     <h2 class="mb-4 df poppins-medium">Our Story</h2>
                                     <p class="lead df poppins-light">
@@ -194,7 +194,7 @@ if (isset($_POST['submit_feedback'])) {
                         </div>
 
                         <div class="col-md-6">
-                            <div class="card h-100 shadow-sm border-0" style="border-radius:15px;">
+                            <div class="card menu-item h-100 border-0" style="background: linear-gradient(135deg, rgba(0, 133, 199, 0.1) 0%, rgba(0, 159, 61, 0.1) 100%); border-radius:15px;">
                                 <div class="card-body">
                                     <h2 class="mb-4 df poppins-medium">Our Mission</h2>
                                     <p class="lead poppins-light">
@@ -209,7 +209,7 @@ if (isset($_POST['submit_feedback'])) {
                     </div>
                     <div class="row g-4 mt-4">
                         <div class="col-md-3 col-6">
-                            <div class="card h-100 bg-light border-0" style="border-radius:15px;">
+                            <div class="card h-100 bg-light border-0" style="background: linear-gradient(135deg, rgba(0, 133, 199, 0.1) 0%, rgba(0, 159, 61, 0.1) 100%); border-radius:15px;">
                                 <div class="card-body text-center">
                                     <h3 class="h4 mb-3 df poppins-medium">Quality</h3>
                                     <p class="mb-0 df poppins-regular">Premium ingredients in every dish</p>
@@ -217,7 +217,7 @@ if (isset($_POST['submit_feedback'])) {
                             </div>
                         </div>
                         <div class="col-md-3 col-6">
-                            <div class="card h-100 bg-light border-0" style="border-radius:15px;">
+                            <div class="card h-100 bg-light border-0" style="background: linear-gradient(135deg, rgba(0, 133, 199, 0.1) 0%, rgba(0, 159, 61, 0.1) 100%); border-radius:15px;">
                                 <div class="card-body text-center">
                                     <h3 class="h4 mb-3 df poppins-medium">Health</h3>
                                     <p class="mb-0 df poppins-regular">Nutritious and balanced meals</p>
@@ -225,7 +225,7 @@ if (isset($_POST['submit_feedback'])) {
                             </div>
                         </div>
                         <div class="col-md-3 col-6">
-                            <div class="card h-100 bg-light border-0" style="border-radius:15px;">
+                            <div class="card h-100 bg-light border-0" style="background: linear-gradient(135deg, rgba(0, 133, 199, 0.1) 0%, rgba(0, 159, 61, 0.1) 100%); border-radius:15px;">
                                 <div class="card-body text-center">
                                     <h3 class="h4 mb-3 df poppins-medium">Community</h3>
                                     <p class="mb-0 df poppins-regular">A gathering place for all</p>
@@ -233,7 +233,7 @@ if (isset($_POST['submit_feedback'])) {
                             </div>
                         </div>
                         <div class="col-md-3 col-6">
-                            <div class="card h-100 bg-light border-0" style="border-radius:15px;">
+                            <div class="card h-100 bg-light border-0" style="background: linear-gradient(135deg, rgba(0, 133, 199, 0.1) 0%, rgba(0, 159, 61, 0.1) 100%); border-radius:15px;">
                                 <div class="card-body text-center">
                                     <h3 class="h4 mb-3 df poppins-medium">Spirit</h3>
                                     <p class="mb-0 df poppins-regular">Olympic values in every serve</p>
@@ -256,7 +256,7 @@ if (isset($_POST['submit_feedback'])) {
                     </div>
                     <div class="row g-4">
                         <div class="col-md-6">
-                            <div class="card shadow-sm border-0">
+                            <div class="card shadow-sm border-0" style="background: linear-gradient(135deg, rgba(0, 133, 199, 0.05) 0%, rgba(0, 159, 61, 0.05) 100%);">
                                 <div class="card-body">
                                     <h2 class="mb-4 df poppins-medium">Send us a Message</h2>
                                     <form method="POST" onsubmit="submitFeedback(event)" class="needs-validation">
@@ -278,7 +278,7 @@ if (isset($_POST['submit_feedback'])) {
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <div class="card shadow-sm border-0 h-100">
+                            <div class="card shadow-sm border-0 h-100" style="background: linear-gradient(135deg, rgba(0, 133, 199, 0.05) 0%, rgba(0, 159, 61, 0.05) 100%);">
                                 <div class="card-body">
                                     <h2 class="mb-4 df poppins-medium">Visit Us</h2>
                                     <div class="mb-4">
@@ -313,7 +313,7 @@ if (isset($_POST['submit_feedback'])) {
 
     <div class="modal fade" id="cartModal" tabindex="-1">
         <div class="modal-dialog">
-            <div class="modal-content">
+            <div class="modal-content" style="border: 3px solid #0085C7;">
                 <div class="modal-header">
                     <h5 class="modal-title poppins-bold">Your Cart</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
@@ -356,7 +356,7 @@ if (isset($_POST['submit_feedback'])) {
                 <?php if (!empty($cart_items)): ?>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-primary border-0" data-bs-dismiss="modal" style="background-color: grey;">Continue Shopping</button>
-                        <button type="button" class="btn btn-primary">Checkout</button>
+                        <button type="button" class="btn btn-primary" style="background-color: #009F3D; color: white; border: none;">Checkout</button>
                     </div>
                 <?php endif; ?>
             </div>

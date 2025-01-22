@@ -1,3 +1,11 @@
+:root {
+    --olympic-blue: #0085C7;
+    --olympic-yellow: #F4C300;
+    --olympic-black: #000000;
+    --olympic-green: #009F3D;
+    --olympic-red: #DF0024;
+}
+
 .poppins-light {
     font-family: "Poppins", serif;
     font-weight: 300;
@@ -50,18 +58,37 @@ html {
 }
 
 body {
-    background-color: #ede9e6;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.05) 0%, rgba(0, 133, 199, 0.05) 100%);
 }
 
 .navbar {
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    background-color: #1f1d1b !important;
-    padding: 1rem 0;
+    background: linear-gradient(90deg, var(--olympic-black) 0%, var(--olympic-blue) 100%) !important;
+    border-bottom: 4px solid;
+    border-image-slice: 1;
+    border-image-source: linear-gradient(90deg,
+            var(--olympic-blue) 0%,
+            var(--olympic-yellow) 25%,
+            var(--olympic-black) 50%,
+            var(--olympic-green) 75%,
+            var(--olympic-red) 100%);
 }
 
 .navbar-brand {
     font-weight: 700;
     font-size: 1.5rem;
+}
+
+.logout-btn {
+    background: transparent;
+    color: white;
+    border: 2px solid var(--olympic-yellow);
+    transition: all 0.3s ease;
+}
+
+.logout-btn:hover {
+    background: var(--olympic-red);
+    border-color: var(--olympic-red);
+    color: white;
 }
 
 .nav-link {
@@ -74,27 +101,52 @@ body {
 }
 
 .card {
-    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    background: white;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
     margin-bottom: 1.5rem;
 }
 
+.card-header {
+    background: linear-gradient(90deg, rgba(0, 133, 199, 0.1) 0%, rgba(0, 159, 61, 0.1) 100%);
+    border-bottom: 2px solid var(--olympic-blue);
+}
+
 .table th {
-    background-color: #f8f9fa;
+    background-color: rgba(0, 133, 199, 0.05);
+    border-bottom: 2px solid var(--olympic-yellow);
 }
 
 .btn-primary {
-    background-color: #0066cc;
-    border-color: #0066cc;
+    background: var(--olympic-black);
+    border: none;
+    transition: all 0.3s ease;
 }
 
 .btn-primary:hover {
-    background-color: #0052a3;
-    border-color: #0052a3;
+    background: var(--olympic-blue);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 133, 199, 0.2);
+}
+
+.btn-warning {
+    background: var(--olympic-yellow);
+    border: none;
+    color: var(--olympic-black);
+}
+
+.btn-danger {
+    background: var(--olympic-red);
+    border: none;
+}
+
+.modal-content {
+    border-top: 4px solid var(--olympic-yellow);
 }
 
 .modal-header {
-    background-color: #f8f9fa;
-    border-bottom: 1px solid #dee2e6;
+    background: linear-gradient(90deg, rgba(0, 133, 199, 0.1) 0%, rgba(0, 159, 61, 0.1) 100%);
 }
 
 .table-responsive {
@@ -119,14 +171,18 @@ body {
 }
 
 .form-control:focus {
-    border-color: #0066cc;
-    box-shadow: 0 0 0 0.2rem rgba(0, 102, 204, 0.25);
+    border-color: var(--olympic-yellow);
+    box-shadow: 0 0 0 3px rgba(244, 195, 0, 0.1);
 }
 
-.logout-btn {
-    background-color: #ede9e6;
+.toast {
+    background: var(--olympic-black);
+    color: white;
+    border-left: 4px solid var(--olympic-yellow);
 }
 
-.logout-btn:hover {
-    background-color: #d2c4ba;
+.toast-header {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: none;
 }

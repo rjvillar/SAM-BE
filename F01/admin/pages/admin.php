@@ -39,11 +39,11 @@ while ($row = mysqli_fetch_assoc($feedback_result)) {
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
-            <div class="d-flex">
+            <div class="d-flex align-items-center">
                 <img src="../assets/images/logo-admin.webp" width="200">
-                <h3 class="poppins-bold fs-5 mx-1" style="color: #ede9e6;">admin</h3>
+                <h3 class="poppins-bold fs-5 mx-1 text-white">admin</h3>
             </div>
             <li class="nav-item">
                 <button class="btn poppins-regular logout-btn" onclick="logout()">Logout</button>
@@ -55,10 +55,10 @@ while ($row = mysqli_fetch_assoc($feedback_result)) {
         <div class="row mb-5">
             <div class="col-12">
                 <div class="card border-0">
-                    <div class="card-header d-flex justify-content-between align-items-center">
-                        <h5 class="mb-0 df poppins-medium">Products Management</h5>
+                    <div class="card-header d-flex justify-content-between align-items-center" style="background: linear-gradient(90deg, rgba(0, 0, 0, 0.95) 0%, rgba(0, 133, 199, 0.95) 100%);">
+                        <h5 class="mb-0 text-white poppins-medium">Products Management</h5>
                         <button class="btn btn-primary poppins-light" data-bs-toggle="modal"
-                            data-bs-target="#addProductModal">
+                            data-bs-target="#addProductModal" style="background: #0085C7; border: none;">
                             Add New Product
                         </button>
                     </div>
@@ -67,11 +67,11 @@ while ($row = mysqli_fetch_assoc($feedback_result)) {
                             <table class="table" id="productsTable">
                                 <thead>
                                     <tr>
-                                        <th class="df poppins-bold">Name</th>
-                                        <th class="df poppins-bold">Description</th>
-                                        <th class="df poppins-bold">Price</th>
-                                        <th class="df poppins-bold">Category</th>
-                                        <th class="df poppins-bold">Actions</th>
+                                        <th style="background: rgba(0, 0, 0, 0.05); border-bottom: 2px solid #F4C300;" class="text-dark poppins-bold">Name</th>
+                                        <th style="background: rgba(0, 0, 0, 0.05); border-bottom: 2px solid #F4C300;" class="text-dark poppins-bold">Description</th>
+                                        <th style="background: rgba(0, 0, 0, 0.05); border-bottom: 2px solid #F4C300;" class="text-dark poppins-bold">Price</th>
+                                        <th style="background: rgba(0, 0, 0, 0.05); border-bottom: 2px solid #F4C300;" class="text-dark poppins-bold">Category</th>
+                                        <th style="background: rgba(0, 0, 0, 0.05); border-bottom: 2px solid #F4C300;" class="text-dark poppins-bold">Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody id="productsTableBody">
@@ -86,18 +86,18 @@ while ($row = mysqli_fetch_assoc($feedback_result)) {
         <div class="row">
             <div class="col-12">
                 <div class="card">
-                    <div class="card-header">
-                        <h5 class="mb-0 df poppins-medium">Customer Feedback</h5>
+                    <div class="card-header" style="background: linear-gradient(90deg, rgba(0, 0, 0, 0.95) 0%, rgba(0, 133, 199, 0.95) 100%);">
+                        <h5 class="mb-0 text-white poppins-medium">Customer Feedback</h5>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
                             <table class="table" id="feedbackTable">
                                 <thead>
                                     <tr>
-                                        <th class="df poppins-bold">Date</th>
-                                        <th class="df poppins-bold">Name</th>
-                                        <th class="df poppins-bold">Email</th>
-                                        <th class="df poppins-bold">Message</th>
+                                        <th style="background: rgba(0, 0, 0, 0.05); border-bottom: 2px solid #F4C300;" class="text-dark poppins-bold">Date</th>
+                                        <th style="background: rgba(0, 0, 0, 0.05); border-bottom: 2px solid #F4C300;" class="text-dark poppins-bold">Name</th>
+                                        <th style="background: rgba(0, 0, 0, 0.05); border-bottom: 2px solid #F4C300;" class="text-dark poppins-bold">Email</th>
+                                        <th style="background: rgba(0, 0, 0, 0.05); border-bottom: 2px solid #F4C300;" class="text-dark poppins-bold">Message</th>
                                     </tr>
                                 </thead>
                                 <tbody id="feedbackTableBody">
@@ -112,9 +112,9 @@ while ($row = mysqli_fetch_assoc($feedback_result)) {
 
     <div class="modal fade" id="addProductModal" tabindex="-1">
         <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title df poppins-bold" id="modalTitle">Add New Product</h5>
+            <div class="modal-content" style="border-top: 4px solid #F4C300;">
+                <div class="modal-header" style="background: linear-gradient(90deg, rgba(0, 0, 0, 0.95) 0%, rgba(0, 133, 199, 0.95) 100%);">
+                    <h5 class="modal-title text-white poppins-bold" id="modalTitle">Add New Product</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body">
@@ -152,29 +152,6 @@ while ($row = mysqli_fetch_assoc($feedback_result)) {
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        let products = [{
-                id: '1',
-                name: 'Champion\'s Latte',
-                description: 'Premium espresso with silky steamed milk',
-                price: 249,
-                category: 'beverages'
-            },
-            {
-                id: '2',
-                name: 'Olympic Breakfast Bowl',
-                description: 'Acai, granola, fresh fruits, and honey',
-                price: 449,
-                category: 'food'
-            }
-        ];
-
-        let feedbacks = [{
-            date: '2024-02-20',
-            name: 'John Doe',
-            email: 'john@example.com',
-            message: 'Great service and amazing food!'
-        }];
-
         const productsTableBody = document.getElementById('productsTableBody');
         const feedbackTableBody = document.getElementById('feedbackTableBody');
         const productForm = document.getElementById('productForm');
@@ -194,8 +171,16 @@ while ($row = mysqli_fetch_assoc($feedback_result)) {
                         <td class="poppins-regular">₱${parseFloat(product.price).toFixed(2)}</td>
                         <td class="poppins-regular">${product.category}</td>
                         <td>
-                            <button class="btn btn-sm btn-warning me-1 poppins-light" onclick="editProduct(${product.product_id})">Edit</button>
-                            <button class="btn btn-sm btn-danger poppins-light" onclick="deleteProduct(${product.product_id})">Delete</button>
+                            <button class="btn btn-sm btn-warning me-1 poppins-light" 
+                                onclick="editProduct(${product.product_id})" 
+                                style="background: #F4C300; border: none; color: #000;">
+                                Edit
+                            </button>
+                            <button class="btn btn-sm btn-danger poppins-light" 
+                                onclick="deleteProduct(${product.product_id})" 
+                                style="background: #DF0024; border: none;">
+                                Delete
+                            </button>
                         </td>
                     </tr>
                 `;
@@ -240,9 +225,11 @@ while ($row = mysqli_fetch_assoc($feedback_result)) {
                     document.getElementById('productPrice').value = product.price;
                     document.getElementById('productCategory').value = product.category;
 
-                    const modal = new bootstrap.Modal(document.getElementById('addProductModal'));
                     document.getElementById('modalTitle').textContent = 'Edit Product';
-                    modal.show();
+
+                    const modal = document.getElementById('addProductModal');
+                    const modalInstance = new bootstrap.Modal(modal);
+                    modalInstance.show();
                 })
                 .catch(error => {
                     console.error('Error:', error);
@@ -303,6 +290,19 @@ while ($row = mysqli_fetch_assoc($feedback_result)) {
 
         document.addEventListener('DOMContentLoaded', () => {
             loadProducts();
+            loadFeedback();
+
+            const productModal = new bootstrap.Modal(document.getElementById('addProductModal'));
+
+            document.getElementById('addProductModal').addEventListener('hidden.bs.modal', () => {
+                productForm.reset();
+                document.getElementById('productId').value = '';
+                document.getElementById('modalTitle').textContent = 'Add New Product';
+            });
+
+            document.getElementById('logoutBtn').addEventListener('click', () => {
+                logout();
+            });
         });
 
         function loadFeedback() {
@@ -345,7 +345,7 @@ while ($row = mysqli_fetch_assoc($feedback_result)) {
             toastElement.className = 'toast show';
             toastElement.setAttribute('role', 'alert');
             toastElement.innerHTML = `
-        <div class="toast-header">
+        <div class="toast-header" style="background: rgba(255, 255, 255, 0.1); color: white;">
             <strong class="me-auto">Notification</strong>
             <button type="button" class="btn-close" data-bs-dismiss="toast"></button>
         </div>

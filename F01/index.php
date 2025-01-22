@@ -79,6 +79,13 @@ if (isset($_POST['signup'])) {
         </div>
         <div class="forms-container">
             <div class="form-section <?php echo (isset($_GET['form']) && $_GET['form'] === 'signup') ? 'hidden' : ''; ?>" id="loginForm">
+                <div class="olympic-rings">
+                    <div class="ring"></div>
+                    <div class="ring"></div>
+                    <div class="ring"></div>
+                    <div class="ring"></div>
+                    <div class="ring"></div>
+                </div>
                 <div class="logo-container">
                     <img src="assets/images/logo.webp">
                 </div>
@@ -102,6 +109,13 @@ if (isset($_POST['signup'])) {
             </div>
 
             <div class="form-section <?php echo (!isset($_GET['form']) || $_GET['form'] !== 'signup') ? 'hidden' : ''; ?>" id="signupForm">
+                <div class="olympic-rings">
+                    <div class="ring"></div>
+                    <div class="ring"></div>
+                    <div class="ring"></div>
+                    <div class="ring"></div>
+                    <div class="ring"></div>
+                </div>
                 <h2 class="df poppins-bold">Create Account</h2>
                 <form method="POST" action="">
                     <div class="input-group">

@@ -45,17 +45,19 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, #fdfcfb 0%, #e2d1c3 100%);
+    background: linear-gradient(135deg, #0085C7 0%, #009F3D 100%);
     padding: 20px;
 }
 
 .container {
     background: rgba(255, 255, 255, 0.95);
     border-radius: 20px;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
     width: 100%;
     max-width: 400px;
     padding: 40px;
+    position: relative;
+    overflow: hidden;
 }
 
 .form-section {
@@ -107,15 +109,16 @@ label {
 input {
     width: 100%;
     padding: 12px;
-    border: 1px solid #e2d1c3;
+    border: 2px solid #E5E5E5;
     border-radius: 8px;
     font-size: 14px;
-    transition: border-color 0.3s ease;
+    transition: all 0.3s ease;
 }
 
 input:focus {
     outline: none;
-    border-color: #1f1d1b;
+    border-color: #0085C7;
+    box-shadow: 0 0 0 3px rgba(0, 133, 199, 0.1);
 }
 
 .password-input {
@@ -137,17 +140,21 @@ input:focus {
 .submit-btn {
     width: 100%;
     padding: 14px;
-    background: #494541;
+    background: #0085C7;
     color: white;
     border: none;
     border-radius: 8px;
     font-size: 16px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
 }
 
 .submit-btn:hover {
-    background: #1f1d1b;
+    background: #006699;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 133, 199, 0.3);
 }
 
 .switch-form {
@@ -158,13 +165,72 @@ input:focus {
 }
 
 .switch-form a {
-    color: #494541;
+    color: #0085C7;
+    font-weight: 600;
     text-decoration: none;
-    font-weight: bold;
 }
 
 .switch-form a:hover {
     text-decoration: underline;
+}
+
+.olympic-rings {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    margin: 20px 0;
+}
+
+.ring {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    border: 2.5px solid;
+    animation: bounce 2s ease-in-out infinite;
+}
+
+.ring:nth-child(1) {
+    border-color: #0085C7;
+    animation-delay: 0.1s;
+}
+
+.ring:nth-child(2) {
+    border-color: #F4C300;
+    animation-delay: 0.3s;
+}
+
+.ring:nth-child(3) {
+    border-color: #000000;
+    animation-delay: 0.5s;
+}
+
+.ring:nth-child(4) {
+    border-color: #009F3D;
+    animation-delay: 0.7s;
+}
+
+.ring:nth-child(5) {
+    border-color: #DF0024;
+    animation-delay: 0.9s;
+}
+
+@keyframes bounce {
+
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+        transform: translateY(0);
+    }
+
+    40% {
+        transform: translateY(-12px);
+    }
+
+    60% {
+        transform: translateY(-4px);
+    }
 }
 
 .toast {

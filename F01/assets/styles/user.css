@@ -1,9 +1,9 @@
 :root {
-    --olympic-blue: #1386c4;
-    --olympic-yellow: #f3c232;
+    --olympic-blue: #0085C7;
+    --olympic-yellow: #F4C300;
     --olympic-black: #000000;
-    --olympic-green: #47993d;
-    --olympic-red: #d23539;
+    --olympic-green: #009F3D;
+    --olympic-red: #DF0024;
 }
 
 .poppins-light {
@@ -58,9 +58,15 @@ body {
 }
 
 .navbar {
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    background-color: #ede9e6 !important;
-    padding: 1rem 0;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.95) 0%, rgba(237, 233, 230, 0.95) 100%) !important;
+    border-bottom: 4px solid;
+    border-image-slice: 1;
+    border-image-source: linear-gradient(90deg,
+            var(--olympic-blue) 0%,
+            var(--olympic-yellow) 25%,
+            var(--olympic-black) 50%,
+            var(--olympic-green) 75%,
+            var(--olympic-red) 100%);
 }
 
 .navbar-brand {
@@ -78,6 +84,7 @@ body {
 }
 
 .hero-section {
+    background: linear-gradient(135deg, var(--olympic-blue) 0%, var(--olympic-green) 100%);
     position: relative;
     overflow: hidden;
 }
@@ -101,7 +108,9 @@ css-doodle {
 }
 
 .menu-item {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.3s ease;
+    border: none;
+    overflow: hidden;
 }
 
 .menu-item:hover {
@@ -123,23 +132,27 @@ css-doodle {
     animation: fadeIn 0.5s ease-out;
 }
 
-.about-section {
-    background-color: #ede9e6;
-}
-
 .divider-custom {
-    width: 60px;
+    background: linear-gradient(90deg,
+            var(--olympic-blue) 0%,
+            var(--olympic-yellow) 25%,
+            var(--olympic-black) 50%,
+            var(--olympic-green) 75%,
+            var(--olympic-red) 100%);
     height: 4px;
-    background-color: #1f1d1b;
-    margin: 1.5rem auto;
     border-radius: 2px;
+    margin: 1.5rem auto;
 }
 
+.about-section,
 .contact-section {
-    background-color: #ede9e6;
+    background: linear-gradient(135deg, rgba(0, 133, 199, 0.1) 0%, rgba(0, 159, 61, 0.1) 100%);
 }
 
 .card {
+    border: none;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -160,29 +173,25 @@ css-doodle {
 }
 
 .sort-btn {
-    background-color: #ede9e6;
-    border-color: #ede9e6;
     padding: 0.75rem 1.5rem;
     font-weight: 600;
     transition: all 0.3s ease;
 }
 
 .sort-btn:hover {
-    background-color: #1f1d1b;
-    border-color: #1f1d1b;
     transform: translateY(-2px);
     color: white;
 }
 
 .logout-btn:hover {
-    background-color: #1f1d1b;
-    border-color: #1f1d1b;
+    background-color: var(--olympic-blue) !important;
+    border-color: var(--olympic-blue) !important;
     color: white;
 }
 
 .btn-primary {
-    background-color: #c6a179;
-    border-color: #c6a179;
+    background-color: var(--olympic-blue) !important;
+    border-color: var(--olympic-blue) !important;
     color: white;
     padding: 0.75rem 1.5rem;
     font-weight: 600;
@@ -190,18 +199,19 @@ css-doodle {
 }
 
 .btn-primary:hover {
-    background-color: #1f1d1b;
-    border-color: #1f1d1b;
+    background-color: var(--olympic-green) !important;
+    border-color: var(--olympic-green) !important;
     transform: translateY(-2px);
 }
 
 .btn-outline-primary {
-    border-color: #1f1d1b;
+    color: var(--olympic-blue) !important;
+    border-color: var(--olympic-blue) !important;
 }
 
 .btn-outline-primary:hover {
-    background-color: #1f1d1b;
-    border-color: #1f1d1b;
+    background-color: var(--olympic-blue) !important;
+    color: white !important;
 }
 
 @keyframes fadeIn {
